@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FilmeService } from '../../shared/services/filme-service';
 
 @Component({
   selector: 'app-home',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.css',
 })
 export class Home {
+
+  private filmeService = inject(FilmeService);
 
 }

@@ -1,0 +1,7 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+      @for (item of filmes(); track item.id) {
+        <app-card-filme [movie]="item" ></app-card-filme>
+      } @empty {
+        <p class="text-center col-span-full text-gray-500">Nenhum filme encontrado.</p>
+      }
+    </div>
