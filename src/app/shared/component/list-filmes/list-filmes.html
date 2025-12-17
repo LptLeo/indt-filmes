@@ -1,7 +1,27 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-      @for (item of filmes(); track item.id) {
-        <app-card-filme [movie]="item" ></app-card-filme>
-      } @empty {
-        <p class="text-center col-span-full text-gray-500">Nenhum filme encontrado.</p>
-      }
+<div class="relative group p-6">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ titulo() }}</h2>
+      
+      <div 
+        #carousel
+        class="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory pb-4"
+      >
+        @for (item of filmes(); track item.id) {
+          <div class="min-w-[250px] md:min-w-[300px] snap-start">
+            <app-card-filme [movie]="item" ></app-card-filme>
+          </div>
+        }
+      </div>
+
+      <button 
+        (click)="scroll('left')"
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hidden group-hover:block ml-2"
+      >
+        ❮
+      </button>
+      <button 
+        (click)="scroll('right')"
+        class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hidden group-hover:block mr-2"
+      >
+        ❯
+      </button>
     </div>
