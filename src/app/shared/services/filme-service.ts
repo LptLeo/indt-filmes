@@ -1,10 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { enviroments } from '../../../environments/environment';
-import { FilmeResponse } from '../models/Filme';
+import { environments } from '../../../environments/environment';
+import { Filme, FilmeResponse } from '../models/Filme';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilmeService {
+  private API_URL = environments.api_url;
+  private API_KEY = environments.api_key;
+
+  private http = inject(HttpClient)
+
+  getPopularFilmes() {
+    return this.http.get<FilmeResponse>(`${this.API_URL}/movie/popular?api_key=${this.API_KEY}&language=pt-BR`);
+  }
+
+  getFilmesTop() {
+    return this.http.get<Filme[]>(`${this.API_URL}/movie/top-rated?api_key=${this.API_KEY}&language=pt-BR`);
+  }
 }

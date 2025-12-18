@@ -1,18 +1,15 @@
 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-      <img 
-        [src]="'https://image.tmdb.org/t/p/w500' + movie().poster_path" 
-        [alt]="movie().title"
-        class="w-full h-64 object-cover"
-      >
-      <div class="p-4">
-        <h3 class="font-bold text-lg mb-2 truncate">{{ movie().title }}</h3>
-        <div class="flex justify-between items-center">
-          <span class="bg-yellow-400 text-xs font-bold px-2 py-1 rounded">
-            ★ {{ movie().vote_average }}
-          </span>
-          <span class="text-gray-500 text-sm">
-            {{ movie().release_date | date:'yyyy' }}
-          </span>
-        </div>
-      </div>
+  <img [src]="'https://image.tmdb.org/t/p/w500' + movie().poster_path" [alt]="movie().title"
+    class="w-full h-64 object-cover">
+  <div class="p-4">
+    <h3 class="font-bold text-lg mb-2 truncate">{{ movie().title }}</h3>
+    <div class="flex justify-between items-center">
+      <span class="bg-yellow-400 text-xs font-bold px-2 py-1 rounded">
+        ★ {{ movie().vote_average }}
+      </span>
+      <span class="text-gray-500 text-sm">
+        {{ movie().release_date | date:'yyyy' }}
+      </span>
     </div>
+  </div>
+</div>

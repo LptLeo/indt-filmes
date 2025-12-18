@@ -9,9 +9,9 @@ export const routes: Routes = [
 
     // descomente as linhas abaixo para usar os guards
 
-    //{ path: '', component: Hero, canActivate: [publicGuard] },
-    //{ path: 'login', component: Login, canActivate: [publicGuard] },
+    { path: '', component: Hero, canActivate: [publicGuard] },
+    { path: 'login', component: Login, canActivate: [publicGuard] },
 
     // Seguindo os exemplos acima, crie a rota para a página home protegida pelo authGuard
-    { path: 'home', component: Home, canActivate: [ authGuard] }
+    { path: 'home', component: Home, canActivate: [authGuard] },
 ];

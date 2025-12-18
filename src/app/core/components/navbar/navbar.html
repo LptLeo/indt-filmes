@@ -1,49 +1,47 @@
 <nav class="bg-gray-900 text-white shadow-xl sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          
-          <div class="flex items-center gap-2 cursor-pointer" routerLink="/home">
-            <span class="text-2xl"></span>
-            <span class="text-xl font-black tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              CINEFLEX
-            </span>
-          </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
 
-          @if(authService.authenticated()) {
-            <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline space-x-4">
-                <a routerLink="/home" routerLinkActive="text-blue-400" class="hover:text-blue-400 px-3 py-2 transition-colors">Início</a>
-                <a href="#" class="hover:text-blue-400 px-3 py-2 transition-colors">Filmes</a>
-                <a href="#" class="hover:text-blue-400 px-3 py-2 transition-colors">Séries</a>
-              </div>
-            </div>
-          }
+      <div class="flex items-center gap-2 cursor-pointer" routerLink="/home">
+        <span class="text-2xl"></span>
+        <span
+          class="text-xl font-black tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          CINEFLEX
+        </span>
+      </div>
 
-          <div class="flex items-center gap-4">
-            
-            @if (authService.currentUser(); as user) {
-              <div class="flex items-center gap-3">
-                <span class="hidden sm:inline text-sm font-medium text-gray-300">
-                  Olá, <span class="text-white">{{ user.name }}</span>
-                </span>
-                
-                <button 
-                  (click)="authService.logout()"
-                  class="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border border-red-500/50 px-4 py-1.5 rounded-lg text-sm font-semibold transition-all"
-                >
-                  Sair
-                </button>
-              </div>
-            } @else {
-              <button 
-                routerLink="/login"
-                class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all"
-              >
-                Entrar
-              </button>
-            }
-          </div>
-
+      @if(authService.authenticated()) {
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-4">
+          <a routerLink="/home" routerLinkActive="text-blue-400"
+            class="hover:text-blue-400 px-3 py-2 transition-colors">Início</a>
+          <a href="#" class="hover:text-blue-400 px-3 py-2 transition-colors">Filmes</a>
+          <a href="#" class="hover:text-blue-400 px-3 py-2 transition-colors">Séries</a>
         </div>
       </div>
+      }
+
+      <div class="flex items-center gap-4">
+
+        @if (authService.currentUser(); as user) {
+        <div class="flex items-center gap-3">
+          <span class="hidden sm:inline text-sm font-medium text-gray-300">
+            Olá, <span class="text-white">{{ user.name }}</span>
+          </span>
+
+          <button (click)="authService.logout()"
+            class="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border border-red-500/50 px-4 py-1.5 rounded-lg text-sm font-semibold transition-all">
+            Sair
+          </button>
+        </div>
+        } @else {
+        <button routerLink="/login"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all">
+          Entrar
+        </button>
+        }
+      </div>
+
+    </div>
+  </div>
 </nav>
